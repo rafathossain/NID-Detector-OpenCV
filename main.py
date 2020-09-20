@@ -3,7 +3,7 @@ import cv2
 import pytesseract
 
 # Read image from which text needs to be extracted
-img = cv2.imread("test7.jpg")
+img = cv2.imread("test6.jpg")
 
 # Preprocessing the image starts
 
@@ -30,15 +30,8 @@ contours, hierarchy = cv2.findContours(dilation, cv2.RETR_EXTERNAL,
 # Creating a copy of image
 im2 = img.copy()
 
-# A text file is created and flushed
-file = open("recognized.txt", "w+")
-file.write("")
-file.close()
-
 # Looping through the identified contours
 # Then rectangular part is cropped and passed on
-# to pytesseract for extracting text from it
-# Extracted text is then written into the text file
 for cnt in contours:
     x, y, w, h = cv2.boundingRect(cnt)
 
